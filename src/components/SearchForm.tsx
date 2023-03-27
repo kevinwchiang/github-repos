@@ -54,7 +54,7 @@ export function SearchForm({ onSubmit, updateForm, form } : SearchFormProps) {
       {/* Dropdown menu to select the sort option */}
       <Dropdown>
         <Dropdown.Toggle variant="success" id="dropdown-basic">
-          Sort options
+          {getSortOptionLabel(sort)}
         </Dropdown.Toggle>
         <Dropdown.Menu>
           {sortOptions.map((option) => (
