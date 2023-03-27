@@ -17,7 +17,7 @@ const defaultForm: FormProps = {
   search: '',
   searchType: 'user',
   order: 'desc',
-  per_page: 6,
+  per_page: 5,
   page: 1,
   sort: 'best-match',
 }

@@ -1,9 +1,10 @@
+import { Fragment } from 'react';
 import { ListGroup } from 'react-bootstrap';
 
 type Repository = {
   id: number;
   full_name: string;
-  description: string;
+  description?: string;
 };
 
 type Props = {
@@ -20,12 +21,12 @@ export function List({ repositories, loading } : Props) {
       ) : (
         <ListGroup className="mt-3 mb-3">
           {Array.isArray(repositories) && repositories.map(repo => (
-            <>
-              <ListGroup.Item key={repo.id}>
+            <Fragment key={repo.id}>
+              <ListGroup.Item>
                 <div className="fw-bold">{repo.full_name}</div>
                 <div>{repo.description}</div>
               </ListGroup.Item>
-            </>
+            </Fragment>
           ))}
         </ListGroup>
       )

@@ -7,6 +7,7 @@ type SearchFormProps = {
   form: FormProps;
 }
 
+// An array of sort options available to the user
 const sortOptions: FormProps['sort'][] = ['best-match', 'stars', 'forks', 'help-wanted-issues', 'updated'];
 
 function getSortOptionLabel(option: FormProps['sort']): string {
@@ -32,6 +33,7 @@ export function SearchForm({ onSubmit, updateForm, form } : SearchFormProps) {
   return (
     <Form>
       <Form.Group className="mb-3 mt-3">
+        {/* Radio buttons to select the search type */}
         <Form.Check 
           type='radio'
           label='Search by username'
@@ -46,8 +48,10 @@ export function SearchForm({ onSubmit, updateForm, form } : SearchFormProps) {
         />
       </Form.Group>
       <Form.Group className="mb-3 mt-3">
+        {/* Input field to enter the search query */}
         <Form.Control type="text" placeholder={searchType === 'user' ? "Enter username" : "Enter organization"} onChange={(e) => updateForm({ ...form, search: e.target.value })} />
       </Form.Group>
+      {/* Dropdown menu to select the sort option */}
       <Dropdown>
         <Dropdown.Toggle variant="success" id="dropdown-basic">
           Sort options
@@ -65,6 +69,7 @@ export function SearchForm({ onSubmit, updateForm, form } : SearchFormProps) {
         </Dropdown.Menu>
       </Dropdown>
       <Form.Group className="mb-3 mt-3">
+        {/* Radio buttons to select the sort order */}
         <Form.Check 
           type='radio'
           label='asc'
