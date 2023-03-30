@@ -3,8 +3,12 @@ This app is a search tool for GitHub repositories. Users can enter a search quer
 I am using React and Typescript for the frontend and Bootstrap for styling with Jest and React Testing Library for unit tests. The application also utilizes custom hooks (specifically, useFetchRepositories), which abstract away the details of API calls to the GitHub API. The useFetchRepositories hook retrieves data from the GitHub API using the fetch function.
 
 To run the application:
-1. `npm install`
-2. `npm run dev`
+1. Setup environment variables
+  - Create a new file named .env at the root of your project directory.
+  - Add the following variable to the file: VITE_GITHUB_ACCESS_TOKEN=[YOUR_GITHUB_ACCESS_TOKEN]
+  - To generate a GitHub access token, follow the instructions in the [GitHub documentation](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+2. `npm install`
+3. `npm run dev`
 
 To run unit tests:
 `npm run test`

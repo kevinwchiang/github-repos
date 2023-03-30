@@ -17,9 +17,12 @@ export function useFetchRepositories(form: FormProps) {
       page,
       sort,
     } = form;
-  
+
     const query = `${searchType}:${search}`;
-    const response = await fetch(`https://api.github.com/search/repositories?q=${query}&page=${page}&per_page=${per_page}&order=${order}&sort=${sort}`);
+    const headers = {
+      'Authorization': `Token ${import.meta.env.VITE_GITHUB_ACCESS_TOKEN}`,
+    };
+    const response = await fetch(`https://api.github.com/search/repositories?q=${query}&page=${page}&per_page=${per_page}&order=${order}&sort=${sort}`, { headers });
     
     const data = await response.json();
     setTotalCount(data.total_count);
